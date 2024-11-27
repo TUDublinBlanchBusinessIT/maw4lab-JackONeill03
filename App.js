@@ -11,20 +11,44 @@ export default function App() {
   var credits=5;
   var totalPossibleCredits = 10;
   var totalGradeScores = 0;
+
+}
   
   function clickMe(){
-    alert("this is the click me button"); //alert for web
-    Alert.alert("this is the click me button"); //alert for phone
-    //get the studnet's gradePointsfor SSWD, multiply it by the credits 
-    //add the result to totalGradeScores as an accumulator variable (e.g. tgs=tgs+sswd)
+    alert("this is the click me button"); 
+    Alert.alert("this is the click me button"); 
+  
+    const sswdGradePoints = gradePoints[sswd] || 0;
+    const obGradePoints = gradePoints[ob] || 0; 
 
-    
-    //get the student's gradePointsfor Ob, multiply it by the credits
-    //add the result to totalGradeScores as an accumulator variable (e.g. tgs=tgs+ob)
-   
-    //calculate the gpa as the totalsGradeScores divided by the totalPossibleCredits
-    //Output the calculated GPA result to the user using an alert (you must concatenate the gpa)
-  }
+    const totalGradeScores = (sswdGradePoints + obGradePoints) * credits;
+
+    const gpa = totalGradeScores / totalPossibleCredits;
+
+    Alert.alert(`Your GPA is: ${gpa.toFixed(2)}`);
+
+
+    const styles = StyleSheet.create({
+      container: {
+        flex: 1,
+        padding: "5%",
+        backgroundColor: "#9df9ef"
+      },
+      row: {
+        flexDirection: "row",
+        alignItems: "center",
+        marginBottom: "5%",
+      },
+      label: {
+        fontSize: 16,
+        fontWeight: "bold",
+        marginLeft: "5%",
+      },
+      textInput: {
+        padding: "5%",
+        marginRight: "5%",
+      }
+    }); 
 
 
 return (
